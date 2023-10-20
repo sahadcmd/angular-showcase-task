@@ -1,0 +1,32 @@
+.container {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.container #ops {
+    color: #ff004f;
+    font-size: 8em;
+    padding-bottom: 10px;
+}
+
+button {
+    border-radius: 10px;
+    padding: 5px 15px;
+    transition: 0.5s;
+    border: 1px solid #ff004f;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #ff004f;
+}
+
+button:hover a {
+    color: #fff;
+}
+
+button a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #ff004f;
+}
