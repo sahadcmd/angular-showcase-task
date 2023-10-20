@@ -1,0 +1,66 @@
+.container {
+    color: #fff;
+    text-align: center;
+    margin: 20px auto;
+    width: 75%;
+}
+
+.tbhead h1 {
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+#user {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.container th {
+    font-weight: 700;
+}
+
+#user th, #user td {
+    border: 1px solid #717171;
+}
+
+#user tr:nth-child(even){
+    background-color: #585858;
+}
+
+#user th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #222;
+}
+
+#user td {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.btn-add {
+    margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+    .grid-view {
+        display: none;
+    }
+
+    .list-view {
+        display: block;
+    }
+}
+
+@media (min-width: 768px) {
+    .list-view {
+        display: none;
+    }
+
+    .grid-view {
+        display: block;
+    }
+    
+}
