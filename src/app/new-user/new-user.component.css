@@ -1,0 +1,81 @@
+.container {
+    margin: 20px 50px 0 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    background-color: #212529;
+    padding: 40px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 15px 25px #212529eb;
+}
+
+.container h3 {
+    color: #fff;
+    text-align: center;
+    margin: 0 0 20px;
+    padding: 0;
+}
+
+.user-box {
+    margin-bottom: 20px;
+}
+
+
+.container label {
+    color: #fff;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.user-box input {
+    width: 100%;
+    background: #4a4a4a;
+    color: #fff;
+    padding: 6px 5px;
+    border: 1px solid #4a4a4a;
+    border-radius: 5px;
+}
+
+.user-box small {
+    color: red;
+}
+
+#gendr {
+    margin-right: 15px;
+}
+
+select {
+    width: 100px;
+    border-radius: 5px;
+    background: #cccccc;
+}
+
+button {
+    margin-top: 10px;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+@media screen and (max-width: 1000px){
+    .container {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        width: 80%;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    .container {
+        width: 96%;
+    }
+}

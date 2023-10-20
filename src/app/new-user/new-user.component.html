@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <h3>New User</h3>
+    <form #usersForm="ngForm" [formGroup]="formData" (ngSubmit)="onSubmit(usersForm.value)">
+        <div class="user-box">
+            <label for="id">ID</label>
+            <input type="number" id="id" formControlName="id">
+            <small *ngIf="!formData.get('id').valid && formData.get('id').touched">Please enter a valid id</small>
+        </div>
+        <div class="user-box">
+            <label for="name">Name</label>
+            <input type="text" formControlName="name" id="name">
+            <small *ngIf="!formData.get('name').valid && formData.get('name').touched">Please enter a name</small>
+        </div>
+        <div class="user-box">
+            <label for="email">Email</label>
+            <input type="email" id="email" formControlName="email">
+            <small *ngIf="!formData.get('email').valid && formData.get('email').touched">Please enter a valid email id</small>
+        </div>
+        <div class="user-box">
+            <label for="gender" id="gendr">Gender:</label>
+            <select name="gender" id="gender" formControlName="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+        <div class="form-check form-switch">
+            <label class="form-check-label" for="status">Status</label>
+            <input class="form-check-input" type="checkbox" role="switch" id="status" formControlName="status">
+        </div>
+        <button class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<app-footer></app-footer>
