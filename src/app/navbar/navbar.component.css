@@ -1,0 +1,15 @@
+#navbarText {
+    margin-right: 30px;
+}
+
+.navbar-brand {
+    padding-left: 15px;
+}
+
+.active { 
+    color: #fff;
+}
+
+.container-fluid a {
+    font-weight: 700;
+}

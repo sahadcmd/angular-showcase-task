@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-1 mt-1 h1"><a class="nav-link" routerLink="/">Angular Task</a></span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav ms-auto mb-1 mt-1">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/userlist" routerLinkActive="active">User List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/newuser" routerLinkActive="active">New User</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
