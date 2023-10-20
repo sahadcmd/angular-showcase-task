@@ -1,27 +1,37 @@
-# AngularShowcaseTask
+<h1 align = "center"><b>Angular Showcase Task</b></h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.4.
+<p align="center">
+    <a href="" target="_blank">Visit Website</a>
+</p>
 
-## Development server
+This project involves creating a responsive web and mobile app using Angular, sharing a single codebase. It retrieves user data from a configurable API source and presents it in both list and grid views. Users can add new entries with form validation. It offers detailed user views and internet connectivity checks.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This project is undertaken as part of an Angular task.
 
-## Code scaffolding
+## Preview
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<div align="center">
+    <img src="./src/assets/Screenshot1.png">
+</div>
 
-## Build
+<br>
+<br>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+<div align="center">
+    <img src="./src/assets/Screenshot2.png">
+</div>
 
-## Running unit tests
+<br>
+<br>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<div align="center">
+    <img src="./src/assets/Screenshot3.png">
+</div>
 
-## Running end-to-end tests
+<hr>
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+<h5 align="center">Connect with me!</h5>
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<p align="center">
+    <a href="https://www.linkedin.com/in/sahadmahaboobp" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
+</p>
