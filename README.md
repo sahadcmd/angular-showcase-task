@@ -1,7 +1,7 @@
 <h1 align = "center"><b>Angular Showcase Task</b></h1>
 
 <p align="center">
-    <a href="" target="_blank">Visit Website</a>
+    <a href="https://angular-showcase-task.vercel.app/" target="_blank">Visit Website</a>
 </p>
 
 This project involves creating a responsive web and mobile app using Angular, sharing a single codebase. It retrieves user data from a configurable API source and presents it in both list and grid views. Users can add new entries with form validation. It offers detailed user views and internet connectivity checks.
