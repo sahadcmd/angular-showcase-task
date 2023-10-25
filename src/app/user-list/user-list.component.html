@@ -14,7 +14,7 @@
             </tr>
             <tr *ngFor="let user of users">
                 <td>{{user.id}}</td>
-                <td>{{user.name}}</td>
+                <td><a [routerLink]="['/useredit', user.id]" id="viewDetails">{{user.name}}</a></td>
                 <td>{{user.email}}</td>
                 <td>{{user.gender}}</td>
                 <td>{{user.status}}</td>
@@ -28,7 +28,7 @@
                 <th>NAME</th>
             </tr>
             <tr *ngFor="let user of users">
-                <td>{{user.name}}</td>
+                <td><a [routerLink]="['/useredit', user.id]" id="viewDetails">{{user.name}}</a></td>
             </tr>
         </table>
     </div>
