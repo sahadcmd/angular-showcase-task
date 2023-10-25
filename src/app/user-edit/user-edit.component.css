@@ -19,6 +19,12 @@
     padding: 0;
 }
 
+#backButton{
+    text-decoration: none;
+    color: #fff;
+    font-size: 22px;
+}
+
 .user-box {
     margin-bottom: 20px;
 }
