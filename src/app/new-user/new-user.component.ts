@@ -1,8 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
 import { UserDataService } from '../user-data.service';
 import { Router } from '@angular/router';
 import { DraftService } from '../services/draft.service';
+
+
+// Custom Validator Function for ID
+function idValidator(): ValidatorFn {
+  return (control: AbstractControl): { [key: string]: any } | null => {
+    const value = control.value;
+
+    if (value == null || value === '') {
+      return { required: true };
+    }
+
+    if (value.toString().length !== 7) {
+      return { invalidLength: true };
+    }
+
+    if (isNaN(value)) {
+      return { notNumber: true };
+    }
+
+    return null;
+  };
+}
+
 
 @Component({
   selector: 'app-new-user',
@@ -20,7 +43,7 @@ export class NewUserComponent implements OnInit {
   // form validators
   ngOnInit(){
     this.formData = new FormGroup({
-      id: new FormControl(null, [Validators.required, Validators.minLength(7)]),
+      id: new FormControl(null, [Validators.required, idValidator()]),
       name: new FormControl(null, Validators.required),
       email: new FormControl(null, [Validators.required, Validators.email]),
       gender: new FormControl('male'),

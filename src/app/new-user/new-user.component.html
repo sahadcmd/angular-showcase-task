@@ -6,7 +6,8 @@
         <div class="user-box">
             <label for="id">ID</label>
             <input type="number" id="id" formControlName="id">
-            <small *ngIf="!formData.get('id').valid && formData.get('id').touched">Please enter a valid id</small>
+            <small *ngIf="!formData.get('id').valid && formData.get('id').touched && !formData.get('id').hasError('invalidLength')">ID is required</small>
+            <small *ngIf="formData.get('id').hasError('invalidLength') && formData.get('id').touched">ID must be 7 digits long</small>
         </div>
         <div class="user-box">
             <label for="name">Name</label>
