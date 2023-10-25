@@ -36,6 +36,7 @@ export class NewUserComponent implements OnInit {
 
   formData: FormGroup;
   draftData: any;
+  userSubmitForm: boolean = false;
 
   constructor(private userData: UserDataService, private router: Router, private draftService: DraftService){
   }
@@ -69,6 +70,8 @@ export class NewUserComponent implements OnInit {
   
 
   onSubmit(formData: any){
+    this.userSubmitForm = true;
+
     // Update the 'status' form control value based on the checkbox state
     if (this.formData.get('status').value) {
       this.formData.get('status').setValue('active');
@@ -76,12 +79,13 @@ export class NewUserComponent implements OnInit {
       this.formData.get('status').setValue('inactive');
     }
 
-    // Adding data to database through service
-    this.userData.saveUsers(this.formData.value).subscribe((result) => {
-      console.warn(result);
-
-      // Reset the form after submission
-      this.formData.reset();
-    });
+    if (this.formData.valid) {
+      // Adding data to the database through a service
+      this.userData.saveUsers(this.formData.value).subscribe((result) => {
+        console.warn(result);
+        // Reset the form after submission
+        this.formData.reset();
+      });
+    }
   }
 }
