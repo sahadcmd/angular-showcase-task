@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
 import { UserDataService } from '../user-data.service';
 import { Router } from '@angular/router';
-import { DraftService } from '../services/draft.service';
-
 
 // Custom Validator Function for ID
 function idValidator(): ValidatorFn {
@@ -26,50 +24,37 @@ function idValidator(): ValidatorFn {
   };
 }
 
-
 @Component({
   selector: 'app-new-user',
   templateUrl: './new-user.component.html',
   styleUrls: ['./new-user.component.css']
 })
 export class NewUserComponent implements OnInit {
-
   formData: FormGroup;
-  draftData: any;
   userSubmitForm: boolean = false;
 
-  constructor(private userData: UserDataService, private router: Router, private draftService: DraftService){
-  }
+  constructor(private userData: UserDataService, private router: Router) {}
 
   // form validators
-  ngOnInit(){
+  ngOnInit() {
     this.formData = new FormGroup({
-      id: new FormControl(null, [Validators.required, idValidator()]),
-      name: new FormControl(null, Validators.required),
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      gender: new FormControl('male'),
-      status: new FormControl('active')
+      id: new FormControl(this.getDraftValue('id'), [Validators.required, idValidator()]),
+      name: new FormControl(this.getDraftValue('name'), Validators.required),
+      email: new FormControl(this.getDraftValue('email'), [Validators.required, Validators.email]),
+      gender: new FormControl(this.getDraftValue('gender', 'male')),
+      status: new FormControl(this.getDraftValue('status', 'active')),
     });
 
     // Load draft data if it exists
-    this.draftData = this.draftService.getDraft();
-    if (this.draftData) {
-      this.formData.setValue(this.draftData);
-    }
+    this.restoreDraft();
   }
 
   ngOnDestroy() {
     // Save draft data before leaving the component
-    if (this.formData.dirty) {
-      this.draftService.saveDraft(this.formData.value);
-    } else {
-      this.draftService.clearDraft();
-    }
+    this.saveDraft();
   }
 
-  
-
-  onSubmit(formData: any){
+  onSubmit(formData: any) {
     this.userSubmitForm = true;
 
     // Update the 'status' form control value based on the checkbox state
@@ -85,7 +70,37 @@ export class NewUserComponent implements OnInit {
         console.warn(result);
         // Reset the form after submission
         this.formData.reset();
+        // Clear draft data
+        this.clearDraft();
       });
     }
+  }
+
+  // Helper function to retrieve draft data from local storage
+  private getDraftValue(key: string, defaultValue: any = null) {
+    const draftData = localStorage.getItem('userFormDraft');
+    if (draftData) {
+      const parsedData = JSON.parse(draftData);
+      return parsedData[key] || defaultValue;
+    }
+    return defaultValue;
+  }
+
+  // Helper function to save draft data to local storage
+  private saveDraft() {
+    localStorage.setItem('userFormDraft', JSON.stringify(this.formData.value));
+  }
+
+  // Helper function to restore draft data from local storage
+  private restoreDraft() {
+    const draftData = this.getDraftValue('formData');
+    if (draftData) {
+      this.formData.setValue(draftData);
+    }
+  }
+
+  // Helper function to clear draft data from local storage
+  private clearDraft() {
+    localStorage.removeItem('userFormDraft');
   }
 }
